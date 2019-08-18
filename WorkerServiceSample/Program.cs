@@ -35,8 +35,8 @@ namespace WorkerServiceSample
                 .ConfigureLogging(loggerFactory => loggerFactory.AddEventLog())
                 .ConfigureServices(services =>
                 {
-
-                    //-- https://github.com/HangfireIO/Hangfire/blob/master/samples/NetCoreSample/Program.cs
+                    //-- Based on https://github.com/HangfireIO/Hangfire/blob/master/samples/NetCoreSample/Program.cs
+                    
                     services.TryAddSingleton<SqlServerStorageOptions>(new SqlServerStorageOptions
                     {
                         CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
@@ -72,7 +72,7 @@ namespace WorkerServiceSample
                         options.ShutdownTimeout = TimeSpan.FromSeconds(30);
                     });
 
-                    services.AddHostedService<HangfireBackgroundJobServer>();
+                    services.AddHostedService<HangfireBackgroundJobService>();
                 });
     }
 }
