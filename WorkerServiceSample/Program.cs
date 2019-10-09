@@ -22,6 +22,8 @@ namespace WorkerServiceSample
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             CreateHostBuilder(args).Build().Run();
+            
+            //WindowsServiceLifetimeHostBuilderExtensions.IsWindowsService()
         }
 
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
